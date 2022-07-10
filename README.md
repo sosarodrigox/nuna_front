@@ -1,3 +1,10 @@
+Si da problemas con Target URI.. en consola:
+
+flutter packages get
+
+Restarting Visual Studio Code after
+
+
 # nuna_app_front
 
 A new Flutter project.
