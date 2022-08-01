@@ -1,6 +1,7 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:nuna_app_front/src/utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,7 +31,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
             Column(
               children: [
-                _imageBanner(),
+                //_imageBanner(),
+                _lootieAnimation(),
                 _textFieldEmail(),
                 _textFieldPassword(),
                 _buttonLogin(),
@@ -40,6 +42,21 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ) 
+    );
+  }
+
+  Widget _lootieAnimation(){
+    return Container(
+      margin: EdgeInsets.only(
+        top: 140,
+        bottom: MediaQuery.of(context).size.height * 0.05
+      ),
+      child: Lottie.asset(
+        'assets/json/delivery.json',
+        width: 200,
+        //height:300,
+        fit:BoxFit.fill
+        ),
     );
   }
 
