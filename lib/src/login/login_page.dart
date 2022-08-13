@@ -1,7 +1,9 @@
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:nuna_app_front/src/login/login_controller.dart';
 import 'package:nuna_app_front/src/utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,8 +14,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  
+  LoginController _con = new LoginController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      _con.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold( //Estructura toda la pantalla
       body: Container(
         width: double.infinity,
@@ -65,7 +81,8 @@ class _LoginPageState extends State<LoginPage> {
     style: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
-      fontSize: 22
+      fontSize: 22,
+      fontFamily: 'NimbusSans'
     ),
     );
   }
@@ -170,11 +187,14 @@ class _LoginPageState extends State<LoginPage> {
           style: TextStyle(color: MyColors.primaryColor),
         ),
         SizedBox(width: 7),
-        Text(
-          'Registrate',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: MyColors.primaryColor),
+        GestureDetector(
+          onTap: _con.goToRegisterPage,
+          child: Text(
+            'Registrate',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: MyColors.primaryColor),
+          ),
         ),
       ],
     );
