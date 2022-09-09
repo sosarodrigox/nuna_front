@@ -15,11 +15,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   
-  LoginController _con = new LoginController();
+  final LoginController _con = LoginController();
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
@@ -45,15 +44,17 @@ class _LoginPageState extends State<LoginPage> {
                 top: 60,
                 left: 25,
               ),
-            Column(
-              children: [
-                //_imageBanner(),
-                _lootieAnimation(),
-                _textFieldEmail(),
-                _textFieldPassword(),
-                _buttonLogin(),
-                _textDontHaveAccount() 
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  //_imageBanner(),
+                  _lootieAnimation(),
+                  _textFieldEmail(),
+                  _textFieldPassword(),
+                  _buttonLogin(),
+                  _textDontHaveAccount() 
+                ],
+              ),
             ),
           ],
         ),
@@ -77,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _textLogin(){
-    return Text('LOGIN',
+    return const Text('LOGIN',
     style: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
@@ -186,9 +187,13 @@ class _LoginPageState extends State<LoginPage> {
           '¿No tienes cuenta?',
           style: TextStyle(color: MyColors.primaryColor),
         ),
-        SizedBox(width: 7),
+        const SizedBox(width: 7),
         GestureDetector(
-          onTap: _con.goToRegisterPage,
+          onTap: _con.goToRegisterPage, //Se ejecuta cuando hace click sobre texto REGISTRATE
+          // onTap: (() {
+          //   Navigator.pushNamed(context, 'register');
+          // }),
+          
           child: Text(
             'Registrate',
             style: TextStyle(

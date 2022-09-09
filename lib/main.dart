@@ -23,8 +23,8 @@ class _AppNunaState extends State<AppNuna> {
       title: 'Nuna App',
       initialRoute: 'login',
       routes: {
-        'login': (BuildContext context) => LoginPage(),
-        'register': (BuildContext context) => RegisterPage(),
+        'login': (BuildContext context) => const LoginPage(),
+        'register': (BuildContext context) => const RegisterPage(),
       },
       theme: ThemeData(
         appBarTheme: AppBarTheme(
@@ -35,3 +35,5 @@ class _AppNunaState extends State<AppNuna> {
     );
   }
 }
+
+//Quedé en video 004 Diseño de la pnatalla....
