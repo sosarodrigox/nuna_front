@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart';
 //import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:nuna_app_front/src/login/login_controller.dart';
+import 'package:nuna_app_front/src/pages/login/login_controller.dart';
 import 'package:nuna_app_front/src/utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget {

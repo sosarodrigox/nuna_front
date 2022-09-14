@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nuna_app_front/src/login/login_page.dart';
-import 'package:nuna_app_front/src/register/register_page.dart';
+import 'package:nuna_app_front/src/pages/login/login_page.dart';
+import 'package:nuna_app_front/src/pages/register/register_page.dart';
 import 'package:nuna_app_front/src/utils/my_colors.dart';
 
 

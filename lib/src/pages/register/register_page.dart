@@ -2,9 +2,9 @@ import 'package:flutter/scheduler.dart';
 //import 'package:flutter/src/foundation/key.dart';
 //import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:nuna_app_front/src/register/register_controller.dart';
+import 'package:nuna_app_front/src/pages/register/register_controller.dart';
 //import 'package:nuna_app_front/src/register/register_controller.dart';
-import '../utils/my_colors.dart';
+import '../../utils/my_colors.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
