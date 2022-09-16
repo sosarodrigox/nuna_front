@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nuna_app_front/src/models/user.dart';
 import 'package:nuna_app_front/src/provider/users.provider.dart';
+import 'package:nuna_app_front/src/utils/my_snackbar.dart';
 
 import '../../models/response_api.dart';
 
@@ -29,7 +30,24 @@ class RegisterController {
     String password = passwordController.text.trim();
     String confirmPassword = confirmPasswordController.text.trim();
 
-    User user = new User(
+    if(email.isEmpty || name.isEmpty || lastname.isEmpty || phone.isEmpty || password.isEmpty || confirmPassword.isEmpty ){
+      
+      MySnackbar.show(context!, 'Debes ingresar todos los campos');
+      return;
+    }
+
+    if(confirmPassword != password){
+      MySnackbar.show(context!, 'La constraseñas no coinciden. Verificar.');
+      return;
+    }
+
+    if(password.length <6){
+      MySnackbar.show(context!, 'Las constraseñas debe tener al menos 6 caracteres.');
+      return;
+    }
+
+
+    User user = User(
       email: email,
       name: name,
       lastname: lastname,
@@ -39,13 +57,9 @@ class RegisterController {
 
     ResponseApi? responseApi = await usersProvider.create(user);
 
-    print('RESPUESTA: ${responseApi!.toJson()}');
+    MySnackbar.show(context!, responseApi!.message!);
 
-    print(email);
-    print(name);
-    print(lastname);
-    print(phone);
-    print(password);
-    print(confirmPassword);
+    print('RESPUESTA: ${responseApi.toJson()}');
+
   }
 }
